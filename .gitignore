@@ -1,0 +1,20 @@
+# Pycharm files
+S13/.idea/
+S12/.idea/
+S11/.idea/
+S10/.idea/
+S7/.idea/
+S8/.idea/
+S9/.idea/
+S1/.idea/
+S2/.idea/
+S3/.idea/
+S4/.idea/
+.idea
+
+# Pycaches
+S1/__pycache__/
+S2/__pycache__/
+
+# Jupyter checkpoints and notebooks
+.ipynb_checkpoints
