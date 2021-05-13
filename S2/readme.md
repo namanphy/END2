@@ -18,7 +18,8 @@ We have here a following NN consists of 1 hidden layer having 2 neurons with 2 i
 - `E1` and `E2` are two losses associated with `a_o1` and `a_o2` respectively.
 
 
-## Equations
+# Equations
+ 
  
 ![meta](https://github.com/namanphy/END2/blob/main/S2/images/meta.png)
 
@@ -33,7 +34,7 @@ with respect to original weights in last forward pass.
 i.e. `W_new = W_old - LR * ∂(E_total)/∂(W_old)`
 
 
-## Training
+# Training
 Following image is from the excel file and clearly shows the reducing loss from training.
 
 ![training](https://github.com/namanphy/END2/blob/main/S2/images/training.png)
@@ -56,5 +57,3 @@ converging more rapidly. This is because here the gradient values (as seen above
 
 
 -----------
-
-The associated Excel file is present in this repo only.
