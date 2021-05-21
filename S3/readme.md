@@ -14,6 +14,8 @@ To write a neural network that can:
 
 The problem is approached as a classification problem which has `[0, 18]` **19 classes** to predict.
 
+![model](https://github.com/namanphy/END2/blob/main/S3/images/model.png)
+
 
 # Data Preparation
 
@@ -73,7 +75,6 @@ If we visualise some of the final results from our custom dataset:
 
 # Model Preparation
 
-![model](https://github.com/namanphy/END2/blob/main/S3/images/model.png)
 
 The model has two parts and the idea behind this is:
 
@@ -87,8 +88,7 @@ At last **logarithmic of softmax values has been taken as final output and the l
 
 Training happened for 20 epochs. As the size of the model is very small it.
 
-## loss
+# Loss
 **Negative log likelihood** has been chosen as the loss for the network. The idea behind this is that this losss in combination with softmax gives good results by **penalizing the low confidence of model in incorrect class and rearding the high confidence of model in correct class.**
 
-
-Below are some training logs.
+For the training logs, click the above [notebook](https://github.com/namanphy/END2/blob/main/S3/Addition_in_NN_with_MNIST.ipynb)
