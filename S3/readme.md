@@ -75,7 +75,6 @@ If we visualise some of the final results from our custom dataset:
 
 # Model Preparation
 
-
 The model has two parts and the idea behind this is:
 
 - One is for the training and getting features out of image. It is using a convolution NN with batch normalisation and maxpooling.
@@ -84,11 +83,16 @@ The model has two parts and the idea behind this is:
 
 At last **logarithmic of softmax values has been taken as final output and the likelihood for the output [0,19].**
 
-# Training
+![arch](https://github.com/namanphy/END2/blob/main/S3/images/arch.png)
 
-Training happened for 20 epochs. As the size of the model is very small it.
+The Model only has around 25k parameters(much less after convolution - when both input combine) and with these set it has reached around 46% accuracy.
 
 # Loss
 **Negative log likelihood** has been chosen as the loss for the network. The idea behind this is that this losss in combination with softmax gives good results by **penalizing the low confidence of model in incorrect class and rearding the high confidence of model in correct class.**
 
 For the training logs, click the above [notebook](https://github.com/namanphy/END2/blob/main/S3/Addition_in_NN_with_MNIST.ipynb)
+
+
+# Conclusion
+
+Addition is a linear problem and it is difficult to approach the neural network with this problem as classification and using conventional numeric approach.
