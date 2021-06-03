@@ -11,10 +11,9 @@ def binary_accuracy(preds, y):
 
 
 def plot_metric(metrics, legends, xlabel='', ylabel='', title='Plot'):
-    
-    if type(metrics != list):
+    if type(metrics) != list:
         metrics = [metrics]
-    if type(legends != list):
+    if type(legends) != list:
         legends = [legends]
     assert len(metrics) < 4, "Too many metrics. only 3 are supported."
 
@@ -22,8 +21,9 @@ def plot_metric(metrics, legends, xlabel='', ylabel='', title='Plot'):
     i = 0
     for metric in metrics:
         plt.plot(range(len(metric)), metric, marker=marker[i])
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
-        plt.legend(legends)
-        plt.title(title)
-        plt.show()
+        i+=1
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.legend(legends)
+    plt.title(title)
+    plt.show()
