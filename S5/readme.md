@@ -2,6 +2,9 @@
 ### On Standford Sentiment Treebank using LSTM
 
 --------
+
+## Solution notebook - (Stanford  Sentiment Treebank - Classification LSTM)[https://github.com/namanphy/END2/blob/main/S5/Stanford_Sentiment_Treebank_Classification_LSTM.ipynb]
+
 # Hyperparameters
 - Batch size: 64
 - Learning rate: 0.0001
