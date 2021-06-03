@@ -3,7 +3,7 @@
 
 --------
 
-## Solution notebook - (Stanford  Sentiment Treebank - Classification LSTM)[https://github.com/namanphy/END2/blob/main/S5/Stanford_Sentiment_Treebank_Classification_LSTM.ipynb]
+## Solution notebook - [Stanford  Sentiment Treebank - Classification LSTM](https://github.com/namanphy/END2/blob/main/S5/Stanford_Sentiment_Treebank_Classification_LSTM.ipynb)
 
 # Hyperparameters
 - Batch size: 64
