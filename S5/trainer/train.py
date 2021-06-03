@@ -18,6 +18,12 @@ def train(model, train_iterator, test_iterator, optimizer, criterion, accuracy_m
 
     N_EPOCHS = epochs
     best_valid_loss = float('inf')
+    
+    CHECK_FOLDER = os.path.isdir('../weights/')
+    print(CHECK_FOLDER)
+    if not CHECK_FOLDER:
+        os.makedirs('../weights/')
+        print("created weights folder : ", '../weights/')
 
     for epoch in range(N_EPOCHS):
         
