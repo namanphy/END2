@@ -30,7 +30,7 @@ def sentences_to_dataframe(path_sst, split=0.8, seed=SEED):
     df_test = pd.concat((pd.read_csv(out_path.format(f), sep='\t\t', header=None, names=['label', 'text']) 
                         for f in ['test', 'dev']), ignore_index=True)
 
-    split_rows = ((df_train.shape[0] + df_test.shape[0]) * split) - df_train.shape[0]
+    split_rows = int(((df_train.shape[0] + df_test.shape[0]) * split) - df_train.shape[0])
     print(f'Adding {split_rows} more rows to trainset.')
     df_train = pd.concat((df_train, df_test.sample(n=split_rows, random_state=seed)), ignore_index=True)
     df_test = df_test.drop(df_test.sample(n=split_rows, random_state=seed).index)
