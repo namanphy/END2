@@ -1,1 +1,1 @@
-from .parse_sst_sentences import sentences_to_dataframe
+from .sst_dataset import sentences_to_dataframe
