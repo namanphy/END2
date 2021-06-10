@@ -106,7 +106,7 @@ class lstm_decoder(nn.Module):
 
 The encoder-decoder hidden activations are recorded for a test run on a sample sentence. And here is what i have found. 
 
-![i](https://github.com/namanphy/END2/blob/main/S6/imgs/output_activations.png)
+![i](https://github.com/namanphy/END2/blob/main/S6/imgs/output_text.png)
 
 NOTE : **All the states - `output, hidden, cell` are present in notebook under `state_collector` dictionary.**
 
