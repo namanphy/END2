@@ -133,7 +133,7 @@ NOTE : **All the states - `output, hidden, cell` are present in notebook under `
 
 **Yes!! This time an experiemnt tracking tool(Weights and Biases) has been tested out. And results are good.**
 
-Will upload the dashboard link here soon.
+< *Will upload the dashboard link here soon.* >
 
 The model was overfitting in all the scenarios. The accuracy and loss was measured for base line
 model, the gradually augmentations were added, and model architectures/hyperparams were experimented and measured for accuracy.
