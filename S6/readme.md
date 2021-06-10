@@ -135,9 +135,7 @@ NOTE : **All the states - `output, hidden, cell` are present in notebook under `
 
 < *Will upload the dashboard link here soon.* >
 
-The model was overfitting in all the scenarios. The accuracy and loss was measured for base line
-model, the gradually augmentations were added, and model architectures/hyperparams were experimented and measured for accuracy.
-
+The accuracy achieved is decent but it became stagnant after just only few epochs.
 ### Accuracy
 ![](https://github.com/namanphy/END2/blob/main/S6/imgs/accuracy.png)
 
