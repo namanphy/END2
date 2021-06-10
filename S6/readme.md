@@ -24,13 +24,15 @@ On exploring the dataset, it was found to be imbalanced dataset. **Huge Imbalanc
 
 ![i](https://github.com/namanphy/END2/blob/main/S6/imgs/distribution-lables.png)
 
-I attempted to build the dataset class and to use the well known Pytorch Dataloader for consuming the data. Alas!! that didn't pan out. I somehow was getting very slow training time - even when the batches were sorted internally.
+I attempted to build the dataset class and to use the well known Pytorch Dataloader for consuming the data. 
 
-Need to look into it definately. For your reference, 
+Alas!! that didn't pan out. I somehow was getting very slow training time - even when the batches were sorted internally.
+
+Need to look into it definately. For the dataset preparation and cleaning using `tweet-preprocessor` have a look at this notebook, 
 **Data preparation in torchtext 0.9** - [notebook](https://github.com/namanphy/END2/blob/main/S6/tweets_dataset_torchtext_0.9.ipynb)
 
 
-Dataset - train, test split of 80-20 %.
+### Dataset - train, test split of 80-20 %.
 
 # Model
 
