@@ -19,11 +19,11 @@ def train(model, train_iterator, test_iterator, optimizer, criterion, accuracy_m
     N_EPOCHS = epochs
     best_valid_loss = float('inf')
     
-    CHECK_FOLDER = os.path.isdir('./weights/')
+    CHECK_FOLDER = os.path.isdir('../weights/')
     print(CHECK_FOLDER)
     if not CHECK_FOLDER:
-        os.makedirs('./weights/')
-        print("created weights folder : ", './weights/')
+        os.makedirs('../weights/')
+        print("created weights folder : ", '../weights/')
 
     for epoch in range(N_EPOCHS):
         
@@ -45,7 +45,7 @@ def train(model, train_iterator, test_iterator, optimizer, criterion, accuracy_m
         if valid_loss < best_valid_loss:
             best_valid_loss = valid_loss
             
-            path_model = os.path.join('./weights/', 'best_model.pt')
+            path_model = os.path.join('../weights/', 'best_model.pt')
             torch.save(model.state_dict(), path_model)
         
         print(f'Epoch: {epoch+1:02} | Epoch Time: {epoch_mins}m {epoch_secs}s')
