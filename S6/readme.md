@@ -24,13 +24,15 @@ On exploring the dataset, it was found to be imbalanced dataset. **Huge Imbalanc
 
 ![i](https://github.com/namanphy/END2/blob/main/S6/imgs/distribution-lables.png)
 
-I attempted to build the dataset class and to use the well known Pytorch Dataloader for consuming the data. Alas!! that didn't pan out. I somehow was getting very slow training time - even when the batches were sorted internally.
+I attempted to build the dataset class and to use the well known Pytorch Dataloader for consuming the data. 
 
-Need to look into it definately. For your reference, 
-**Data preparation in torchtext 0.9** - [notebook](https://github.com/namanphy/END2/blob/main/S6/tweets_dataset_torchtext_0.9.ipynb)
+Alas!! that didn't pan out. I somehow was getting very slow training time - even when the batches were sorted internally.
+
+Need to look into it definately. For the dataset preparation and cleaning using `tweet-preprocessor` have a look at this notebook, 
+#### Data preparation in torchtext 0.9 - [notebook](https://github.com/namanphy/END2/blob/main/S6/tweets_dataset_torchtext_0.9.ipynb)
 
 
-Dataset - train, test split of 80-20 %.
+### Dataset - train, test split of 80-20 %.
 
 # Model
 
@@ -131,11 +133,9 @@ NOTE : **All the states - `output, hidden, cell` are present in notebook under `
 
 **Yes!! This time an experiemnt tracking tool(Weights and Biases) has been tested out. And results are good.**
 
-Will upload the dashboard link here soon.
+< *Will upload the dashboard link here soon.* >
 
-The model was overfitting in all the scenarios. The accuracy and loss was measured for base line
-model, the gradually augmentations were added, and model architectures/hyperparams were experimented and measured for accuracy.
-
+The accuracy achieved is decent but it became stagnant after just only few epochs.
 ### Accuracy
 ![](https://github.com/namanphy/END2/blob/main/S6/imgs/accuracy.png)
 
