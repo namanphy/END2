@@ -11,7 +11,7 @@ class BiLSTM(nn.Module):
         self.lstm = nn.LSTM(embedding_dim, hidden_dim, 
                             num_layers=n_layers, 
                             dropout=dropout,
-                            # batch_first=True,
+                            batch_first=True,
                             bidirectional=True)
         self.fc = nn.Linear(hidden_dim*2, output_dim)
         self.dropout = nn.Dropout(dropout)

@@ -13,9 +13,10 @@ class LSTM(nn.Module):
                             dropout=dropout,
                             batch_first=True)
         self.fc = nn.Linear(hidden_dim, output_dim)
+        self.dropout = nn.Dropout(dropout)
     
     def forward(self, text, text_length):
-        embedded = self.embedding(text)  # [batch size, sent_length] -> [batch size, sent_len, emb dim]
+        embedded = self.dropout(self.embedding(text))  # [batch size, sent_length] -> [batch size, sent_len, emb dim]
       
         # packed sequence
         packed_embedded = nn.utils.rnn.pack_padded_sequence(embedded, text_length.to('cpu'), batch_first=True)
@@ -25,6 +26,7 @@ class LSTM(nn.Module):
         #cell = [batch size, num layers * num directions, hid dim]
 
         # print('Hidden shape ; ', hidden.shape)
+        hidden = self.dropout(torch.cat((hidden, cell), dim=2))
 
         dense_outputs = self.fc(hidden)  # [batch size, hid dim * num directions] -> [batch size, output dim]
         
