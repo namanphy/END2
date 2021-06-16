@@ -19,3 +19,5 @@ S2/__pycache__/
 # Jupyter checkpoints and notebooks
 .ipynb_checkpoints
 S4/.ipynb_checkpoints
+
+.virtual_documents
