@@ -53,6 +53,7 @@ def train(model, train_iterator, test_iterator, optimizer, criterion, clip=0, ep
         print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {math.exp(train_loss):.2f}%')
         print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {math.exp(valid_loss):.2f}% \n')
     
+    print('Training Completed! Best model is saved in `weights` dir.')
     return train_losses, test_losses, train_perplexity, test_perplexity
 
 
