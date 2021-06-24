@@ -19,7 +19,7 @@ def make_qa_dataset():
 
     print('Downloading and extracting QA dataset from http://www.cs.cmu.edu/~ark/QA-data/data ..')
     subprocess.call(['wget', 'http://www.cs.cmu.edu/~ark/QA-data/data/Question_Answer_Dataset_v1.2.tar.gz', '-P', '../dataset/'])
-    subprocess.call(['tar', '-xf', '/content/dataset/Question_Answer_Dataset_v1.2.tar.gz'])
+    subprocess.call(['tar', '-xf', '../dataset/Question_Answer_Dataset_v1.2.tar.gz'])
 
     dataset = pd.DataFrame()
     
