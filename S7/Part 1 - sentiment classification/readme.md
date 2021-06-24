@@ -58,7 +58,7 @@ The network we decided to build is designed as follows:
 
 
 # Results & Experiments
-### ACCURACY ACHIEVED - 40.78%
+### ACCURACY ACHIEVED - 38.78%
 
 The model was overfitting in all the scenarios. The accuracy and loss was measured for base line
 model, the gradually augmentations were added, and model architectures/hyperparams were experimented and measured for accuracy.
