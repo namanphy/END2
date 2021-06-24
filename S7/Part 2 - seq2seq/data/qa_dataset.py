@@ -38,7 +38,7 @@ def make_qa_dataset():
     
     print('Preprocessing the dataset - lowercase, trim, and remove non-letter characters')
     dataset['Question'] = dataset['Question'].apply(normalizeString)
-    
+    print('Done.')
     return dataset
 
 
