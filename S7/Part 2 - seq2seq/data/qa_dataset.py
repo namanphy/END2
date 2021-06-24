@@ -18,13 +18,13 @@ def make_qa_dataset():
         print("created dataset folder : ", '../dataset/')
 
     print('Downloading and extracting QA dataset from http://www.cs.cmu.edu/~ark/QA-data/data ..')
-    subprocess.call(['wget', 'http://www.cs.cmu.edu/~ark/QA-data/data/Question_Answer_Dataset_v1.2.tar.gz', '-p', '../dataset/'])
+    subprocess.call(['wget', 'http://www.cs.cmu.edu/~ark/QA-data/data/Question_Answer_Dataset_v1.2.tar.gz', '-P', '../dataset/'])
     subprocess.call(['tar', '-xf', '/content/dataset/Question_Answer_Dataset_v1.2.tar.gz'])
 
     dataset = pd.DataFrame()
     
     # get all .txt files from all subdirectories
-    all_files = glob.glob('/content/dataset/Question_Answer_Dataset_v1.2/*/*.txt')
+    all_files = glob.glob('../dataset/Question_Answer_Dataset_v1.2/*/*.txt')
 
     for file in all_files:
         df = pd.read_csv(file, sep='\t', encoding= 'ISO-8859-1')
