@@ -20,11 +20,11 @@ The Dataset has been divided into train, test split of 80-20 %.
 
 1. On exploring the dataset, it was found to be imbalanced dataset. It is clear that most of the training samples belong to classes 2 and 4 (the weakly negative/positive classes)
 
-![i](https://github.com/namanphy/END2/tree/main/S7/Part%201%20-%20sentiment%20classification/imgs/sample-dist.png)
+![i](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/sample-dist.png)
 
 2. The length of the texts in the dataset is also skewed with mean Length --.
 
-![i](https://github.com/namanphy/END2/tree/main/S7/Part%201%20-%20sentiment%20classification/imgs/length-dist.png)
+![i](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/length-dist.png)
 
 
 **The data is divided into multiple txt files. These files are combined to generate a dataset.** After preprocessing, the
@@ -33,6 +33,7 @@ python file.
 
 ## Data Preparation source code - [py file](https://github.com/namanphy/END2/tree/main/S7/Part%201%20-%20sentiment%20classification/data/sst_dataset.py)
 
+--------
 
 # Model - Bi-directional LSTM
 
@@ -65,14 +66,14 @@ model, the gradually augmentations were added, and model architectures/hyperpara
 The best case scenario is following. **The loss was clearly reached its lowest at 15-20 epochs and after that model only overfitted.**
 
 ### Loss
-![](https://github.com/namanphy/END2/tree/main/S7/Part%201%20-%20sentiment%20classification/imgs/loss.png)
+![](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/loss.png)
 
 ### Accuracy
-![](https://github.com/namanphy/END2/tree/main/S7/Part%201%20-%20sentiment%20classification/imgs/acc.png)
+![](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/acc.png)
 
 # Evaluation - What's happened?
 
 Following confusion matrix is plotted on the results of the test data. It shows a better picture of the model than the 
 accuracy metric.
 
-![](https://github.com/namanphy/END2/tree/main/S7/Part%201%20-%20sentiment%20classification/imgs/confusion_matrix.png)
+![](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/confusion_matrix.png)
