@@ -1,4 +1,5 @@
 import torch
+import math
 import time
 import os
 
@@ -10,11 +11,11 @@ def epoch_time(start_time, end_time):
     return elapsed_mins, elapsed_secs
 
 
-def train(model, train_iterator, test_iterator, optimizer, criterion, accuracy_metric, epochs=10):
+def train(model, train_iterator, test_iterator, optimizer, criterion, clip=0, epochs=10):
     train_losses = []
     test_losses = []
-    train_accuracies = []
-    test_accuracies = []
+    train_perplexity = []
+    test_perplexity = []
 
     N_EPOCHS = epochs
     best_valid_loss = float('inf')
@@ -29,13 +30,13 @@ def train(model, train_iterator, test_iterator, optimizer, criterion, accuracy_m
         
         start_time = time.time()
         
-        train_loss, train_acc = _train_epoch(model, train_iterator, optimizer, criterion, accuracy_metric)
-        valid_loss, valid_acc = _evaluate_epoch(model, test_iterator, criterion, accuracy_metric)
+        train_loss = _train_epoch(model, train_iterator, optimizer, criterion, clip)
+        valid_loss = _evaluate_epoch(model, test_iterator, criterion)
 
         train_losses.append(train_loss)
-        train_accuracies.append(train_acc)
+        train_perplexity.append(math.exp(train_loss))
         test_losses.append(valid_loss)
-        test_accuracies.append(valid_acc)
+        test_perplexity.append(math.exp(valid_loss))
         
         end_time = time.time()
 
@@ -49,60 +50,64 @@ def train(model, train_iterator, test_iterator, optimizer, criterion, accuracy_m
             torch.save(model.state_dict(), path_model)
         
         print(f'Epoch: {epoch+1:02} | Epoch Time: {epoch_mins}m {epoch_secs}s')
-        print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.2f}%')
-        print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc*100:.2f}% \n')
+        print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {math.exp(train_loss):.2f}%')
+        print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {math.exp(valid_loss):.2f}% \n')
     
-    return train_losses, test_losses, train_accuracies, test_accuracies
+    return train_losses, test_losses, train_perplexity, test_perplexity
 
 
-def _train_epoch(model, iterator, optimizer, criterion, accuracy_metric):
+def _train_epoch(model, iterator, optimizer, criterion, clip):
     
-    # initialize every epoch 
+    model.train()
     epoch_loss = 0
-    epoch_acc = 0
     
-    # set the model in training phase
-    model.train()  
-    
-    for batch in iterator:
+    for i, batch in enumerate(iterator):
+        ques = batch.questions
+        ans = batch.answers
+        
+        optimizer.zero_grad()
+        
+        output = model(ques, ans)
+        #trg = [trg len, batch size]
+        #output = [trg len, batch size, output dim]
+        
+        output_dim = output.shape[-1]
+        output = output[1:].view(-1, output_dim)
+        ans = ans[1:].view(-1)
+        #trg = [(trg len - 1) * batch size]
+        #output = [(trg len - 1) * batch size, output dim]
+        
+        loss = criterion(output, ans)
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), clip)
+        optimizer.step()
+        
+        epoch_loss += loss.item()
+        
+    return epoch_loss / len(iterator)
 
-        texts, texts_lengths = batch.texts   
-        
-        predictions = model(texts, texts_lengths).squeeze()
-        
-        # print(predictions.shape, batch.labels.shape)
-        loss = criterion(predictions, batch.labels)    
-        optimizer.zero_grad()    
-        acc = accuracy_metric(predictions, batch.labels)   
-        
-        loss.backward()       
-        optimizer.step()      
-        
-        # loss and accuracy
-        epoch_loss += loss.item()  
-        epoch_acc += acc.item()
-        
-    return epoch_loss / len(iterator), epoch_acc / len(iterator)
 
-
-def _evaluate_epoch(model, iterator, criterion, accuracy_metric):
+def _evaluate_epoch(model, iterator, criterion):
     epoch_loss = 0
-    epoch_acc = 0
-
-    # deactivating dropout layers
     model.eval()
     
     with torch.no_grad():
-    
-        for batch in iterator:
-            texts, texts_lengths = batch.texts
+        for i, batch in enumerate(iterator):
+            ques = batch.questions
+            ans = batch.answers
 
-            predictions = model(texts, texts_lengths).squeeze()
-            
-            loss = criterion(predictions, batch.labels)
-            acc = accuracy_metric(predictions, batch.labels)
+            output = model(ques, ans, 0) #turn off teacher forcing
+            #trg = [trg len, batch size]
+            #output = [trg len, batch size, output dim]
+
+            output_dim = output.shape[-1]
+            output = output[1:].view(-1, output_dim)
+            ans = ans[1:].view(-1)
+            #trg = [(trg len - 1) * batch size]
+            #output = [(trg len - 1) * batch size, output dim]
+
+            loss = criterion(output, ans)
             
             epoch_loss += loss.item()
-            epoch_acc += acc.item()
         
-    return epoch_loss / len(iterator), epoch_acc / len(iterator)
+    return epoch_loss / len(iterator)
