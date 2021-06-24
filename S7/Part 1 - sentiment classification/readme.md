@@ -20,11 +20,11 @@ The Dataset has been divided into train, test split of 80-20 %.
 
 1. On exploring the dataset, it was found to be imbalanced dataset. It is clear that most of the training samples belong to classes 2 and 4 (the weakly negative/positive classes)
 
-![i](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/sample-dist.png)
+![i](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/sample_dist.png)
 
 2. The length of the texts in the dataset is also skewed with mean Length --.
 
-![i](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/length-dist.png)
+![i](https://github.com/namanphy/END2/blob/main/S7/Part%201%20-%20sentiment%20classification/imgs/length_dist.png)
 
 
 **The data is divided into multiple txt files. These files are combined to generate a dataset.** After preprocessing, the
