@@ -3,8 +3,8 @@
 
 **Datasets**|**Data Preparation**|**Seq2Seq Model ipynb link**|
 :-----:|:-----:|:-----:|
-[Wikipedia QA Dataset - question & answer pairs](http://www.cs.cmu.edu/~ark/QA-data/)| [readme and source](https://github.com/namanphy/END2/tree/main/S7/Part%202%20-%20seq2seq/data) | [![](https://img.icons8.com/material-rounded/48/000000/github.png)](https://github.com/namanphy/END2/tree/main/S7/Part%202%20-%20seq2seq)
-[Quora Dataset - similar question pairs](https://quoradata.quora.com/First-Quora-Dataset-Release-Question-Pairs)|  [readme and source](https://github.com/namanphy/END2/tree/main/S7/Part%202%20-%20seq2seq/data) | [![](https://img.icons8.com/material-rounded/48/000000/github.png)](https://github.com/namanphy/END2/tree/main/S7/Part%202%20-%20seq2seq)
+[Wikipedia QA Dataset - question & answer pairs](http://www.cs.cmu.edu/~ark/QA-data/)| [readme and source](https://github.com/namanphy/END2/tree/main/S7/Part%202%20-%20seq2seq/data) | [![](https://img.icons8.com/material-rounded/48/000000/github.png)](https://github.com/namanphy/END2/blob/main/S7/Part%202%20-%20seq2seq/QA_dataset_Seq2Seq.ipynb)
+[Quora Dataset - similar question pairs](https://quoradata.quora.com/First-Quora-Dataset-Release-Question-Pairs)|  [readme and source](https://github.com/namanphy/END2/tree/main/S7/Part%202%20-%20seq2seq/data) | [![](https://img.icons8.com/material-rounded/48/000000/github.png)](https://github.com/namanphy/END2/blob/main/S7/Part%202%20-%20seq2seq/Quora_dataset_Seq2Seq.ipynb)
 
 **The complete information about the preparation of the dataset can be found in above links.** Or click on this [readme](https://github.com/namanphy/END2/tree/main/S7/Part%202%20-%20seq2seq/data).
 
